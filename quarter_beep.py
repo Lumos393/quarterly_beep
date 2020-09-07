@@ -1,20 +1,30 @@
-from asyncio import subprocess
-import subprocess
+from pickle import FALSE
 import time
 from playsound import playsound
+import pause
+from datetime import datetime
 
-def quarter_beep():
-    playsound('D:\Documents Bulk\Sounds\windows_8_unlock.mp3')
+mornran = range(0, 8)
+dayran = range(8, 19)
+nightran = range(19, 24)
+minarr = [0, 15, 30, 45]
 
 hour_call = time.strftime('%H')
+int_hour_call = int(time.strftime('%H'))
 minute_call = time.strftime('%M')
+int_minute_call = int(time.strftime('%M'))
 
-if int(hour_call) in range(0,8):
-        if int(minute_call) == 00 or 15 or 30 or 45:
-                print(hour_call+':'+minute_call)
-                quarter_beep()
+print(hour_call + ':' + minute_call)
+
+for int_hour_call in dayran:
+        if int_minute_call in minarr:  
+                print(hour_call, minute_call)
+                playsound('D:\Documents Bulk\Sounds\windows_8_unlock.mp3')
                 time.sleep(870)
-        else:
-                time.sleep(1)
+        elif((int_hour_call in (range(0, 8) or range(19, 24))) and ((int_minute_call in minarr) == FALSE)):
+                print('Waiting...')
+                time.sleep(1) or range(0, 8)
 else:
-        time.sleep(50370)
+        if int_hour_call in (mornran or nightran):
+                print('Long sleep...')
+                time.sleep(1)
