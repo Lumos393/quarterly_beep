@@ -9,3 +9,4 @@ time_call = time.strftime('%H.%M')
 
 def quarter_beep():
         playsound('D:\Documents Bulk\Sounds\windows_8_unlock.mp3')
+quarter_beep()
