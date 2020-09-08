@@ -1,8 +1,11 @@
+import sys
+import os
 from pickle import FALSE
 import time
+import subprocess
 from playsound import playsound
-import pause
 from datetime import datetime
+import decouple
 
 mornran = range(0, 8)
 dayran = range(8, 19)
@@ -16,15 +19,14 @@ int_minute_call = int(time.strftime('%M'))
 
 print(hour_call + ':' + minute_call)
 
-for int_hour_call in dayran:
-        if int_minute_call in minarr:  
+for x in dayran:
+        if int_minute_call in minarr:
                 print(hour_call, minute_call)
                 playsound('D:\Documents Bulk\Sounds\windows_8_unlock.mp3')
                 time.sleep(870)
-        elif((int_hour_call in (range(0, 8) or range(19, 24))) and ((int_minute_call in minarr) == FALSE)):
+        if((int_hour_call in (range(0, 8) or range(19, 24))) and ((int_minute_call in minarr) == FALSE)):
                 print('Waiting...')
                 time.sleep(1) or range(0, 8)
-else:
         if int_hour_call in (mornran or nightran):
-                print('Long sleep...')
+                print('Nighty night')
                 time.sleep(1)
